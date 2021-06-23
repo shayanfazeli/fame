@@ -10,12 +10,16 @@ class MLPAutoEncoder(torch.nn.Module):
     def __init__(
             self,
             input_output_dim: int,
-            hidden_layers: List[int]
+            hidden_layers: List[int],
+            apply_input_batchnorm: bool = True
     ):
         super(MLPAutoEncoder, self).__init__()
 
         self.add_module("criterion", torch.nn.MSELoss())
-        self.add_module("input_batchnorm", torch.nn.BatchNorm1d(input_output_dim))
+        self.apply_input_batchnorm = apply_input_batchnorm
+
+        if self.apply_input_batchnorm:
+            self.add_module("input_batchnorm", torch.nn.BatchNorm1d(input_output_dim))
 
         # - encoding
         encoder_module_list = [
@@ -56,7 +60,8 @@ class MLPAutoEncoder(torch.nn.Module):
         )
 
     def forward(self, x: torch.Tensor, return_loss: bool = False, return_embeddings: bool = False) -> torch.Tensor:
-        x = self.input_batchnorm(x)
+        if self.apply_input_batchnorm:
+            x = self.input_batchnorm(x)
 
         embeddings = self.encoder(x)
         if return_embeddings:
@@ -64,7 +69,7 @@ class MLPAutoEncoder(torch.nn.Module):
             return embeddings
         else:
             x_hat = self.decoder(embeddings)
-            if not return_loss:
-                return x_hat
-            else:
+            if return_loss:
                 return self.criterion(x_hat, x)
+            else:
+                return x_hat

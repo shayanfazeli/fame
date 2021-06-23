@@ -11,7 +11,7 @@ from sentence_transformers import SentenceTransformer
 
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
-from sklearn.cluster import KMeans, DBSCAN
+from sklearn.cluster import KMeans, DBSCAN, MiniBatchKMeans
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 from fame.text_processing.text_processor import TextProcessor
@@ -22,7 +22,6 @@ from fame.topic_modeling.cortex.model.autoencoder import MLPAutoEncoder
 class TransformerLDATopicModelingPipeline:
     def __init__(
             self,
-            logdir: str,
             autoencoder: MLPAutoEncoder = None,
             use_transformer: bool = True,
             use_lda: bool = True,
@@ -52,8 +51,6 @@ class TransformerLDATopicModelingPipeline:
             pca: PCA = None,
             representation_clustering: Union[KMeans, DBSCAN] = KMeans(n_clusters=5, random_state=1010)
     ):
-        self.logdir = logdir
-
         self.device = device
 
         self.use_tfidf = use_tfidf
@@ -119,7 +116,7 @@ class TransformerLDATopicModelingPipeline:
         self.corpus = [self.vocabulary.doc2bow(tokens) for tokens in tokens_list]
 
         self.lda_model = gensim.models.ldamulticore.LdaMulticore(
-            corpus=self.corpus,
+            corpus=tqdm(self.corpus),
             num_topics=self.number_of_topics_for_lda,
             id2word=self.vocabulary,
             passes=20,
@@ -145,7 +142,7 @@ class TransformerLDATopicModelingPipeline:
                 lda_representations[i, topic] = prob
         return lda_representations
 
-    def get_stacked_representations(self, text_list, tokens_list, reduce_dimensions: bool = False):
+    def get_stacked_representations(self, text_list, tokens_list, reduce_dimensions: bool = False, batch_size: int = 128):
         reps = []
         if self.use_lda:
             assert self.lda_model is not None, "train the LDA first"
@@ -157,7 +154,18 @@ class TransformerLDATopicModelingPipeline:
             reps.append(self.tfidf.transform(text_list))
 
         if self.use_transformer:
-            reps.append(self.transformer.encode(text_list))
+            if len(text_list) <= batch_size:
+                reps.append(self.transformer.encode(text_list))
+            else:
+                transformer_reps = []
+                for i in range(len(text_list) // batch_size + 1):
+                    start_index = batch_size * i
+                    end_index = batch_size * (i + 1)
+                    if end_index > len(text_list):
+                        end_index = len(text_list)
+                    transformer_reps.append(self.transformer.encode(text_list[start_index:end_index]))
+                transformer_reps = numpy.concatenate(transformer_reps, axis=0)
+            reps.append(transformer_reps)
 
         if len(reps) > 1:
             reps = numpy.concatenate(reps, axis=1)
@@ -195,7 +203,7 @@ class TransformerLDATopicModelingPipeline:
                 optimizer.step()
 
             epoch_losses.append(numpy.mean(batch_losses))
-            epoch_index_range.set_description(f"Epoch: {epoch_index} / Loss: {epoch_losses[-1]}")
+            epoch_index_range.set_description(f"Epoch: {epoch_index} / Loss: {epoch_losses[-1]:.4f}")
             epoch_index_range.refresh()
 
         return epoch_losses
@@ -216,8 +224,13 @@ class TransformerLDATopicModelingPipeline:
 
         return embeddings
 
-    def train_clustering(self, reps) -> None:
+    def train_clustering_fullbatch(self, reps) -> None:
         self.representation_clustering.fit(reps)
+        self.representation_clustering_is_trained = True
+
+    def train_clustering_minibatch(self, dataloader):
+        for reps in tqdm(dataloader):
+            self.representation_clustering.partial_fit(reps)
         self.representation_clustering_is_trained = True
 
     def label_representation_cluster(self, reps):
