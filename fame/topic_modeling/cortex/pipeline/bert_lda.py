@@ -381,7 +381,7 @@ class TransformerLDATopicModelingPipeline:
         Parameters
         ----------
         text_list: `List[str]`, required
-            The list of texts (please note that it is caller's responsibility to do any preprocessing beforehand).
+            The list of texts (preprocessing and tokenization will be performed on it).
 
         batch_size: `int`, optional (default=128)
             The batch-size for computationally heavier modules.

@@ -267,7 +267,7 @@ topic probability layout per documents.</p>
 <dt id="fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.get_representations">
 <code class="sig-name descname">get_representations</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">128</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference internal" href="../_modules/fame/topic_modeling/cortex/pipeline/bert_lda.html#TransformerLDATopicModelingPipeline.get_representations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.get_representations" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
-<dt>text_list: <cite>List[str]</cite>, required</dt><dd><p>The list of texts (please note that it is caller’s responsibility to do any preprocessing beforehand).</p>
+<dt>text_list: <cite>List[str]</cite>, required</dt><dd><p>The list of texts (preprocessing and tokenization will be performed on it).</p>
 </dd>
 <dt>batch_size: <cite>int</cite>, optional (default=128)</dt><dd><p>The batch-size for computationally heavier modules.</p>
 </dd>
