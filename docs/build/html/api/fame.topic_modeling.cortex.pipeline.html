@@ -1,0 +1,449 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>fame.topic_modeling.cortex.pipeline package &mdash; FAME 0.0.10 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> FAME
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Readme.html">About</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FAME</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>fame.topic_modeling.cortex.pipeline package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/fame.topic_modeling.cortex.pipeline.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="fame-topic-modeling-cortex-pipeline-package">
+<h1>fame.topic_modeling.cortex.pipeline package<a class="headerlink" href="#fame-topic-modeling-cortex-pipeline-package" title="Permalink to this headline">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-fame.topic_modeling.cortex.pipeline.bert_lda">
+<span id="fame-topic-modeling-cortex-pipeline-bert-lda-module"></span><h2>fame.topic_modeling.cortex.pipeline.bert_lda module<a class="headerlink" href="#module-fame.topic_modeling.cortex.pipeline.bert_lda" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline">
+<em class="property">class </em><code class="sig-prename descclassname">fame.topic_modeling.cortex.pipeline.bert_lda.</code><code class="sig-name descname">TransformerLDATopicModelingPipeline</code><span class="sig-paren">(</span><em class="sig-param">autoencoder: fame.topic_modeling.cortex.model.autoencoder.MLPAutoEncoder = None</em>, <em class="sig-param">use_transformer: bool = True</em>, <em class="sig-param">use_lda: bool = True</em>, <em class="sig-param">number_of_topics_for_lda: int = 10</em>, <em class="sig-param">use_tfidf: bool = False</em>, <em class="sig-param">transformer_modelname: str = 'paraphrase-mpnet-base-v2'</em>, <em class="sig-param">device: torch.device = device(type='cpu')</em>, <em class="sig-param">text_processor: fame.text_processing.text_processor.TextProcessor = &lt;fame.text_processing.text_processor.TextProcessor object&gt;</em>, <em class="sig-param">token_processor_light: fame.text_processing.token_processor.TokenProcessor = &lt;fame.text_processing.token_processor.TokenProcessor object&gt;</em>, <em class="sig-param">token_processor_heavy: fame.text_processing.token_processor.TokenProcessor = &lt;fame.text_processing.token_processor.TokenProcessor object&gt;</em>, <em class="sig-param">pca: sklearn.decomposition._pca.PCA = None</em>, <em class="sig-param">apply_pca_on_stacked_reps: bool = False</em>, <em class="sig-param">representation_clustering: Union[sklearn.cluster._kmeans.KMeans</em>, <em class="sig-param">sklearn.cluster._dbscan.DBSCAN] = KMeans(n_clusters=5</em>, <em class="sig-param">random_state=1010)</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fame/topic_modeling/cortex/pipeline/bert_lda.html#TransformerLDATopicModelingPipeline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The <a class="reference internal" href="#fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline" title="fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransformerLDATopicModelingPipeline</span></code></a> class provides an easy-to-use wrapper for
+performing neural topic modeling with the state of the art transformers, clustering techniques, and
+topic modeling based on latent dirichlet analysis.</p>
+<p>Please refer to [this document](#todo: fill) for an example usage.</p>
+<dl>
+<dt>autoencoder: <cite>MLPAutoEncoder</cite>, optional (default=None)</dt><dd><p>If provided (with a value other than <cite>None</cite>), the so-called “stacked” representations will be
+passed through this VAE and the dense bottleneck representations of the learned auto-encoder
+will be the final representations.</p>
+</dd>
+<dt>use_transformer: <cite>bool</cite>, optional (default=True)</dt><dd><p>Boolean flag indicating whether or not we want “transformer” features to contribute to the “stacked” representations.</p>
+</dd>
+<dt>use_lda: <cite>bool</cite>, optional (default=True)</dt><dd><p>Boolean flag indicating whether or not we want “LDA” features to contribute to the “stacked”
+representations (the features indicate the probability layout of topics conditioned by the given document).</p>
+</dd>
+<dt>number_of_topics_for_lda: <cite>int</cite>, optional (default=10)</dt><dd><p>If provided, this will be the number of latent dirichlet allocation based topics</p>
+</dd>
+<dt>use_tfidf: <cite>bool</cite>, optional (default=False)</dt><dd><p>Boolean flag indicating whether or not we want “tf-idf” features to contribute to the “stacked” representations.</p>
+</dd>
+<dt>transformer_modelname: <cite>str</cite>, optional(default=’paraphrase-mpnet-base-v2’)</dt><dd><p>The pretrained sequence embedding model based on [this list](<a class="reference external" href="https://www.sbert.net/docs/pretrained_models.html">https://www.sbert.net/docs/pretrained_models.html</a>).</p>
+</dd>
+<dt>device: <cite>torch.device</cite>, optional (default=`torch.device(‘cpu’)`)</dt><dd><p>The instance which will be used for torch modules</p>
+</dd>
+<dt>text_processor: <cite>TextProcessor</cite>, optional (default=`TextProcessor()`)</dt><dd><p>The module for processing string, which combined with <cite>token_processor_light</cite> will be the main text
+preprocessing scheme.</p>
+</dd>
+<dt>token_processor_light: <cite>TokenProcessor</cite>, optional (default=```</dt><dd><dl>
+<dt>TokenProcessor = TokenProcessor(</dt><dd><dl class="simple">
+<dt>methods=[</dt><dd><p>‘keep_alphabetics_only’,
+# ‘keep_nouns_only’,
+‘spell_check_and_typo_fix’,
+# ‘stem_words’,
+# ‘remove_stopwords’</p>
+</dd>
+</dl>
+<p>]</p>
+</dd>
+</dl>
+<p>)
+<a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>)
+Token processor (light)</p>
+</dd>
+<dt>token_processor_heavy: <cite>TokenProcessor</cite>, optional (default=```</dt><dd><dl>
+<dt>TokenProcessor = TokenProcessor(</dt><dd><dl class="simple">
+<dt>methods=[</dt><dd><p>‘keep_alphabetics_only’,
+# ‘keep_nouns_only’,
+‘spell_check_and_typo_fix’,
+‘stem_words’,
+‘remove_stopwords’</p>
+</dd>
+</dl>
+<p>]</p>
+</dd>
+</dl>
+<p>)
+<a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a>)
+Token processor (heavy) - Please note that a more thorough token preprocessing (including stemming etc.)
+is required for the LDA approach.</p>
+</dd>
+<dt>pca: <cite>PCA</cite>, optional (default=None)</dt><dd><p>The PCA module for dimensionality reduction. If provided, the “apply_pca_on_stacked_reps” can be used in
+the <a class="reference internal" href="#fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.get_stacked_representations" title="fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.get_stacked_representations"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_stacked_representations()</span></code></a> to apply it to the representations.</p>
+</dd>
+<dt>representation_clustering: <cite>Union[KMeans, DBSCAN]</cite>, optional(default=`KMeans(n_clusters=5, random_state=1010)`)</dt><dd><p>The representation clustering model</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.get_lda_representations">
+<code class="sig-name descname">get_lda_representations</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tokens_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>List<span class="p">[</span>str<span class="p">]</span><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference internal" href="../_modules/fame/topic_modeling/cortex/pipeline/bert_lda.html#TransformerLDATopicModelingPipeline.get_lda_representations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.get_lda_representations" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>tokens_list: <cite>List[List[str]]</cite>, required</dt><dd><p>The list of token lists</p>
+</dd>
+</dl>
+<p>The <cite>numpy.ndarray</cite> of dimensions: <cite>len(token_list), number_of_topics_for_lda</cite> corresponding to the
+topic probability layout per documents.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.get_representations">
+<code class="sig-name descname">get_representations</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">128</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference internal" href="../_modules/fame/topic_modeling/cortex/pipeline/bert_lda.html#TransformerLDATopicModelingPipeline.get_representations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.get_representations" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>text_list: <cite>List[str]</cite>, required</dt><dd><p>The list of texts (please note that it is caller’s responsibility to do any preprocessing beforehand).</p>
+</dd>
+<dt>batch_size: <cite>int</cite>, optional (default=128)</dt><dd><p>The batch-size for computationally heavier modules.</p>
+</dd>
+</dl>
+<p>The computed representations for the</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.get_stacked_representations">
+<code class="sig-name descname">get_stacked_representations</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">tokens_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>List<span class="p">[</span>str<span class="p">]</span><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">128</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference internal" href="../_modules/fame/topic_modeling/cortex/pipeline/bert_lda.html#TransformerLDATopicModelingPipeline.get_stacked_representations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.get_stacked_representations" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>text_list: <cite>List[str]</cite>, required</dt><dd><p>The list of texts (please note that it is caller’s responsibility to do any preprocessing beforehand).</p>
+</dd>
+<dt>tokens_list: <cite>List[List[str]]</cite>, required</dt><dd><p>The list of token lists</p>
+</dd>
+<dt>batch_size: <cite>int</cite>, optional (default=128)</dt><dd><p>The batch-size for computationally heavier modules.</p>
+</dd>
+</dl>
+<p>Prior to auto-encoder (if any auto-encoder is provided), the tfidf, lda, and transformer based representations
+(if used, which is indicated by the corresponding boolean flags) will be computed, concatenated, and passed.
+PCA,if provided and if its use for stacked_representaitons is also indicated by setting the
+<cite>apply_pca_on_stacked_reps</cite>, it will also be applkiedf on the representations.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.label_representation_cluster">
+<code class="sig-name descname">label_representation_cluster</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reps</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fame/topic_modeling/cortex/pipeline/bert_lda.html#TransformerLDATopicModelingPipeline.label_representation_cluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.label_representation_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>reps: <cite>numpy.ndarray</cite>, required</dt><dd><p>The representations to be clustered</p>
+</dd>
+</dl>
+<p>The representations will be assigned a cluster labels, which will be returned by this method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.prepare_autoencoder">
+<code class="sig-name descname">prepare_autoencoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text_list</span></em>, <em class="sig-param"><span class="n">tokens_list</span></em>, <em class="sig-param"><span class="n">number_of_epochs</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">200</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">128</span></em>, <em class="sig-param"><span class="n">shuffle</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>float<span class="p">]</span><a class="reference internal" href="../_modules/fame/topic_modeling/cortex/pipeline/bert_lda.html#TransformerLDATopicModelingPipeline.prepare_autoencoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.prepare_autoencoder" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>text_list: <cite>List[str]</cite>, required</dt><dd><p>The list of texts (please note that it is caller’s responsibility to do any preprocessing beforehand).</p>
+</dd>
+<dt>tokens_list: <cite>List[List[str]]</cite>, required</dt><dd><p>The list of token lists</p>
+</dd>
+<dt>number_of_epochs: <cite>int</cite>, optional (default=200)</dt><dd><p>The number of epochs to train the provided auto-encoder module for.</p>
+</dd>
+<dt>batch_size: <cite>int</cite>, optional (default=128)</dt><dd><p>The batch-size for computationally heavier modules.</p>
+</dd>
+<dt>shuffle: <cite>bool</cite>, optional (default=True)</dt><dd><p>If provided, the representations will be shuffled.</p>
+</dd>
+</dl>
+<p>The list of epoch loss items</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.prepare_lda_model">
+<code class="sig-name descname">prepare_lda_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tokens_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>List<span class="p">[</span>str<span class="p">]</span><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">lda_worker_count</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/fame/topic_modeling/cortex/pipeline/bert_lda.html#TransformerLDATopicModelingPipeline.prepare_lda_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.prepare_lda_model" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>tokens_list: <cite>List[List[str]]</cite>, required</dt><dd><p>The list of token lists</p>
+</dd>
+<dt>lda_worker_count: <cite>int</cite>, optional (default=1)</dt><dd><p>The number of workers in the lda module.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.prepare_tfidf_model">
+<code class="sig-name descname">prepare_tfidf_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/fame/topic_modeling/cortex/pipeline/bert_lda.html#TransformerLDATopicModelingPipeline.prepare_tfidf_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.prepare_tfidf_model" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>text_list: <cite>List[str]</cite>, required</dt><dd><p>The list of texts (please note that it is caller’s responsibility to do any preprocessing beforehand).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.preprocess_and_get_text_and_tokens">
+<code class="sig-name descname">preprocess_and_get_text_and_tokens</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">random_sample_count</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">replace</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>List<span class="p">[</span>str<span class="p">]</span><span class="p">, </span>List<span class="p">[</span>List<span class="p">[</span>str<span class="p">]</span><span class="p">]</span><span class="p">, </span>List<span class="p">[</span>int<span class="p">]</span><span class="p">]</span><a class="reference internal" href="../_modules/fame/topic_modeling/cortex/pipeline/bert_lda.html#TransformerLDATopicModelingPipeline.preprocess_and_get_text_and_tokens"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.preprocess_and_get_text_and_tokens" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>text_list: <cite>List[str]</cite>, required</dt><dd><p>The list of input texts</p>
+</dd>
+<dt>random_sample_count: <cite>int</cite>, optional (default=None)</dt><dd><p>If provided, it will be the number of text elements to be randomly sampled from this list.</p>
+</dd>
+<dt>replace: <cite>bool</cite>, optional (default=False)</dt><dd><p>It will be a parameter used when random sampling is chosen.</p>
+</dd>
+</dl>
+<p>It returns the following outputs:
+<cite>preprocessed_text_list, preprocessed_tokens_list, indices</cite></p>
+<p>The first element:
+* the list of preprocessed versions of the original
+* the second element is the list of token lists, per each element
+* list of original ijndices</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.train_clustering_fullbatch">
+<code class="sig-name descname">train_clustering_fullbatch</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reps</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/fame/topic_modeling/cortex/pipeline/bert_lda.html#TransformerLDATopicModelingPipeline.train_clustering_fullbatch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.train_clustering_fullbatch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>reps: <cite>numpy.ndarray</cite>, required</dt><dd><p>The representations to be clustered</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.train_clustering_minibatch">
+<code class="sig-name descname">train_clustering_minibatch</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reps</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">128</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fame/topic_modeling/cortex/pipeline/bert_lda.html#TransformerLDATopicModelingPipeline.train_clustering_minibatch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.train_clustering_minibatch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>reps: <cite>numpy.ndarray</cite>, required</dt><dd><p>The representations to be clustered</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.train_pca">
+<code class="sig-name descname">train_pca</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reps</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/fame/topic_modeling/cortex/pipeline/bert_lda.html#TransformerLDATopicModelingPipeline.train_pca"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.topic_modeling.cortex.pipeline.bert_lda.TransformerLDATopicModelingPipeline.train_pca" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>reps: <cite>numpy.ndarray</cite>, required</dt><dd><p>The representations to be clustered</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fame.topic_modeling.cortex.pipeline">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fame.topic_modeling.cortex.pipeline" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Shayan Fazeli
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

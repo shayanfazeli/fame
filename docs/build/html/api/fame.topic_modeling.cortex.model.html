@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>fame.topic_modeling.cortex.model package &mdash; FAME 0.0.10 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> FAME
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Readme.html">About</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FAME</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>fame.topic_modeling.cortex.model package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/fame.topic_modeling.cortex.model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="fame-topic-modeling-cortex-model-package">
+<h1>fame.topic_modeling.cortex.model package<a class="headerlink" href="#fame-topic-modeling-cortex-model-package" title="Permalink to this headline">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-fame.topic_modeling.cortex.model.autoencoder">
+<span id="fame-topic-modeling-cortex-model-autoencoder-module"></span><h2>fame.topic_modeling.cortex.model.autoencoder module<a class="headerlink" href="#module-fame.topic_modeling.cortex.model.autoencoder" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="fame.topic_modeling.cortex.model.autoencoder.MLPAutoEncoder">
+<em class="property">class </em><code class="sig-prename descclassname">fame.topic_modeling.cortex.model.autoencoder.</code><code class="sig-name descname">MLPAutoEncoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_output_dim</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">hidden_layers</span><span class="p">:</span> <span class="n">List<span class="p">[</span>int<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">apply_input_batchnorm</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fame/topic_modeling/cortex/model/autoencoder.html#MLPAutoEncoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.topic_modeling.cortex.model.autoencoder.MLPAutoEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<dl class="simple">
+<dt>input_output_dim: <cite>int</cite>, required</dt><dd><p>The dimension of the input</p>
+</dd>
+<dt>hidden_layers: <cite>List[int]</cite>, required</dt><dd><p>The list of hidden layers for the encoder (the inverse will be used for decoding)</p>
+</dd>
+<dt>apply_input_batchnorm: <cite>bool</cite>, optional (default=False)</dt><dd><p>If set to True, a general batch-norm will be learned and applied on the inputs.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="fame.topic_modeling.cortex.model.autoencoder.MLPAutoEncoder.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">torch.Tensor</span></em>, <em class="sig-param"><span class="n">return_loss</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">return_embeddings</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; torch.Tensor<a class="reference internal" href="../_modules/fame/topic_modeling/cortex/model/autoencoder.html#MLPAutoEncoder.forward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.topic_modeling.cortex.model.autoencoder.MLPAutoEncoder.forward" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>x: <cite>torch.Tensor</cite>, required</dt><dd><p>The <cite>(batch_size, representation_dim</cite>) input elements.</p>
+</dd>
+<dt>return_loss: <cite>bool</cite>, optional (default=False)</dt><dd><p>If set to <cite>True</cite>, the loss will be returned.</p>
+</dd>
+<dt>return_embeddings:<cite>bool</cite>, optional (default=False)</dt><dd><p>If set to True, the output will be the bottleneck representations</p>
+</dd>
+</dl>
+<p>The output isd either the encoded embeddings, decoded reconstruction, or the loss, depending on the parameters.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="fame.topic_modeling.cortex.model.autoencoder.MLPAutoEncoder.training">
+<code class="sig-name descname">training</code><em class="property">: bool</em><a class="headerlink" href="#fame.topic_modeling.cortex.model.autoencoder.MLPAutoEncoder.training" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fame.topic_modeling.cortex.model">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fame.topic_modeling.cortex.model" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Shayan Fazeli
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

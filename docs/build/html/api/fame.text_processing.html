@@ -1,0 +1,439 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>fame.text_processing package &mdash; FAME 0.0.10 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> FAME
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Readme.html">About</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FAME</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>fame.text_processing package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/fame.text_processing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="fame-text-processing-package">
+<h1>fame.text_processing package<a class="headerlink" href="#fame-text-processing-package" title="Permalink to this headline">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-fame.text_processing.function_bank">
+<span id="fame-text-processing-function-bank-module"></span><h2>fame.text_processing.function_bank module<a class="headerlink" href="#module-fame.text_processing.function_bank" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="fame.text_processing.function_bank.TextProcessingMethodBank">
+<em class="property">class </em><code class="sig-prename descclassname">fame.text_processing.function_bank.</code><code class="sig-name descname">TextProcessingMethodBank</code><a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TextProcessingMethodBank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TextProcessingMethodBank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The methodologies for processing a string of text are brought in this class. The name of the methods
+can be used in the processor object to apply them in order on the strings.</p>
+<dl class="py method">
+<dt id="fame.text_processing.function_bank.TextProcessingMethodBank.convert_to_lowercase">
+<em class="property">static </em><code class="sig-name descname">convert_to_lowercase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TextProcessingMethodBank.convert_to_lowercase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TextProcessingMethodBank.convert_to_lowercase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fame.text_processing.function_bank.TextProcessingMethodBank.eliminate_phrase_repetition">
+<em class="property">static </em><code class="sig-name descname">eliminate_phrase_repetition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TextProcessingMethodBank.eliminate_phrase_repetition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TextProcessingMethodBank.eliminate_phrase_repetition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fame.text_processing.function_bank.TextProcessingMethodBank.gtlt_normalize">
+<em class="property">static </em><code class="sig-name descname">gtlt_normalize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TextProcessingMethodBank.gtlt_normalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TextProcessingMethodBank.gtlt_normalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fame.text_processing.function_bank.TextProcessingMethodBank.methods">
+<code class="sig-name descname">methods</code><em class="property"> = ['remove_url', 'convert_to_lowercase', 'uppercase_based_missing_delimiter_fix', 'gtlt_normalize', 'substitute_more_than_two_letter_repetition_with_one', 'non_character_repetition_elimination', 'use_star_as_delimiter', 'remove_parantheses_and_their_contents', 'remove_questionexlamation_in_brackets', 'strip']</em><a class="headerlink" href="#fame.text_processing.function_bank.TextProcessingMethodBank.methods" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fame.text_processing.function_bank.TextProcessingMethodBank.non_character_repetition_elimination">
+<em class="property">static </em><code class="sig-name descname">non_character_repetition_elimination</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TextProcessingMethodBank.non_character_repetition_elimination"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TextProcessingMethodBank.non_character_repetition_elimination" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fame.text_processing.function_bank.TextProcessingMethodBank.remove_parantheses_and_their_contents">
+<em class="property">static </em><code class="sig-name descname">remove_parantheses_and_their_contents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TextProcessingMethodBank.remove_parantheses_and_their_contents"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TextProcessingMethodBank.remove_parantheses_and_their_contents" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fame.text_processing.function_bank.TextProcessingMethodBank.remove_questionexlamation_in_brackets">
+<em class="property">static </em><code class="sig-name descname">remove_questionexlamation_in_brackets</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TextProcessingMethodBank.remove_questionexlamation_in_brackets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TextProcessingMethodBank.remove_questionexlamation_in_brackets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fame.text_processing.function_bank.TextProcessingMethodBank.remove_url">
+<em class="property">static </em><code class="sig-name descname">remove_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TextProcessingMethodBank.remove_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TextProcessingMethodBank.remove_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fame.text_processing.function_bank.TextProcessingMethodBank.strip">
+<em class="property">static </em><code class="sig-name descname">strip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TextProcessingMethodBank.strip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TextProcessingMethodBank.strip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fame.text_processing.function_bank.TextProcessingMethodBank.substitute_more_than_two_letter_repetition_with_one">
+<em class="property">static </em><code class="sig-name descname">substitute_more_than_two_letter_repetition_with_one</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TextProcessingMethodBank.substitute_more_than_two_letter_repetition_with_one"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TextProcessingMethodBank.substitute_more_than_two_letter_repetition_with_one" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fame.text_processing.function_bank.TextProcessingMethodBank.uppercase_based_missing_delimiter_fix">
+<em class="property">static </em><code class="sig-name descname">uppercase_based_missing_delimiter_fix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TextProcessingMethodBank.uppercase_based_missing_delimiter_fix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TextProcessingMethodBank.uppercase_based_missing_delimiter_fix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fame.text_processing.function_bank.TextProcessingMethodBank.use_star_as_delimiter">
+<em class="property">static </em><code class="sig-name descname">use_star_as_delimiter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TextProcessingMethodBank.use_star_as_delimiter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TextProcessingMethodBank.use_star_as_delimiter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fame.text_processing.function_bank.TokenProcessingMethodBank">
+<em class="property">class </em><code class="sig-prename descclassname">fame.text_processing.function_bank.</code><code class="sig-name descname">TokenProcessingMethodBank</code><a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TokenProcessingMethodBank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TokenProcessingMethodBank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The methodologies for processing a list of strings of text are brought in this class. The name of the methods
+can be used in the processor object to apply them in order on the lists of tokens.</p>
+<dl class="py method">
+<dt id="fame.text_processing.function_bank.TokenProcessingMethodBank.keep_alphabetics_only">
+<em class="property">static </em><code class="sig-name descname">keep_alphabetics_only</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">word_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>str<span class="p">]</span><a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TokenProcessingMethodBank.keep_alphabetics_only"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TokenProcessingMethodBank.keep_alphabetics_only" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fame.text_processing.function_bank.TokenProcessingMethodBank.keep_nouns_only">
+<em class="property">static </em><code class="sig-name descname">keep_nouns_only</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">word_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>str<span class="p">]</span><a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TokenProcessingMethodBank.keep_nouns_only"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TokenProcessingMethodBank.keep_nouns_only" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fame.text_processing.function_bank.TokenProcessingMethodBank.methods">
+<code class="sig-name descname">methods</code><em class="property"> = ['keep_alphabetics_only', 'keep_nouns_only', 'spell_check_and_typo_fix', 'stem_words', 'remove_stopwords']</em><a class="headerlink" href="#fame.text_processing.function_bank.TokenProcessingMethodBank.methods" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fame.text_processing.function_bank.TokenProcessingMethodBank.remove_stopwords">
+<em class="property">static </em><code class="sig-name descname">remove_stopwords</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">word_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>str<span class="p">]</span><a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TokenProcessingMethodBank.remove_stopwords"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TokenProcessingMethodBank.remove_stopwords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fame.text_processing.function_bank.TokenProcessingMethodBank.spell_check_and_typo_fix">
+<em class="property">static </em><code class="sig-name descname">spell_check_and_typo_fix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">word_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>str<span class="p">]</span><a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TokenProcessingMethodBank.spell_check_and_typo_fix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TokenProcessingMethodBank.spell_check_and_typo_fix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fame.text_processing.function_bank.TokenProcessingMethodBank.stem_words">
+<em class="property">static </em><code class="sig-name descname">stem_words</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">word_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>str<span class="p">]</span><a class="reference internal" href="../_modules/fame/text_processing/function_bank.html#TokenProcessingMethodBank.stem_words"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.function_bank.TokenProcessingMethodBank.stem_words" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fame.text_processing.language">
+<span id="fame-text-processing-language-module"></span><h2>fame.text_processing.language module<a class="headerlink" href="#module-fame.text_processing.language" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="fame.text_processing.language.is_english">
+<code class="sig-prename descclassname">fame.text_processing.language.</code><code class="sig-name descname">is_english</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../_modules/fame/text_processing/language.html#is_english"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.language.is_english" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>text: <cite>str</cite>, required</dt><dd><p>Text piece</p>
+</dd>
+</dl>
+<p>Returns True if english</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="fame.text_processing.language.is_from_these_languages">
+<code class="sig-prename descclassname">fame.text_processing.language.</code><code class="sig-name descname">is_from_these_languages</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">language_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../_modules/fame/text_processing/language.html#is_from_these_languages"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.language.is_from_these_languages" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>text: <cite>str</cite>, required</dt><dd><p>Text piece</p>
+</dd>
+<dt>language_list: <cite>List[str]</cite>, required</dt><dd><p>List of languages</p>
+</dd>
+</dl>
+<p>Returns true if the text is from the given languages (the given languages must be compliant with the
+<cite>language_detector</cite> package, which is used in this method.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="fame.text_processing.language.translate">
+<code class="sig-prename descclassname">fame.text_processing.language.</code><code class="sig-name descname">translate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">to</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="../_modules/fame/text_processing/language.html#translate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.language.translate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>text: <cite>str</cite>, required</dt><dd><p>Input text</p>
+</dd>
+<dt>to: <cite>str</cite>, required</dt><dd><p>The target language</p>
+</dd>
+</dl>
+<p>Translated text</p>
+</dd></dl>
+
+</section>
+<section id="module-fame.text_processing.text_processor">
+<span id="fame-text-processing-text-processor-module"></span><h2>fame.text_processing.text_processor module<a class="headerlink" href="#module-fame.text_processing.text_processor" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="fame.text_processing.text_processor.TextProcessor">
+<em class="property">class </em><code class="sig-prename descclassname">fame.text_processing.text_processor.</code><code class="sig-name descname">TextProcessor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methods</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">['remove_url', 'convert_to_lowercase', 'uppercase_based_missing_delimiter_fix', 'gtlt_normalize', 'substitute_more_than_two_letter_repetition_with_one', 'non_character_repetition_elimination', 'use_star_as_delimiter', 'remove_parantheses_and_their_contents', 'remove_questionexlamation_in_brackets', 'strip']</span></em>, <em class="sig-param"><span class="n">allowed_languages</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">{'English'}</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fame/text_processing/text_processor.html#TextProcessor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.text_processor.TextProcessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="simple">
+<dt>methods: <cite>List[str]</cite>, optional(default=`TextProcessingMethodBank.methods`)</dt><dd><p>The list of methods which will be applied by the order in this list to the text.
+The <code class="xref py py-class docutils literal notranslate"><span class="pre">TextProcessingMethodBank</span></code> contains the methods to select from.</p>
+</dd>
+<dt>allowed_languages: <cite>List[str]</cite>, optional(default=`{‘English’}`)</dt><dd><p>The allowed languages</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="fame.text_processing.text_processor.TextProcessor.process_text_with_methods">
+<code class="sig-name descname">process_text_with_methods</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="../_modules/fame/text_processing/text_processor.html#TextProcessor.process_text_with_methods"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.text_processor.TextProcessor.process_text_with_methods" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>text: <cite>str</cite>, required</dt><dd><p>The text to be processed</p>
+</dd>
+</dl>
+<p>The processed text by the methods provided to this object.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fame.text_processing.token_processor">
+<span id="fame-text-processing-token-processor-module"></span><h2>fame.text_processing.token_processor module<a class="headerlink" href="#module-fame.text_processing.token_processor" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="fame.text_processing.token_processor.TokenProcessor">
+<em class="property">class </em><code class="sig-prename descclassname">fame.text_processing.token_processor.</code><code class="sig-name descname">TokenProcessor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methods</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">['keep_alphabetics_only', 'keep_nouns_only', 'spell_check_and_typo_fix', 'stem_words', 'remove_stopwords']</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fame/text_processing/token_processor.html#TokenProcessor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.token_processor.TokenProcessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="fame.text_processing.token_processor.TokenProcessor.process_tokens">
+<code class="sig-name descname">process_tokens</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">word_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>str<span class="p">]</span><a class="reference internal" href="../_modules/fame/text_processing/token_processor.html#TokenProcessor.process_tokens"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.token_processor.TokenProcessor.process_tokens" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>word_list: <cite>List[str]</cite>, required</dt><dd><p>The list of words</p>
+</dd>
+</dl>
+<p>The list of processed tokens</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fame.text_processing.token_processor.TokenProcessor.segment_to_word">
+<code class="sig-name descname">segment_to_word</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>str<span class="p">]</span><a class="reference internal" href="../_modules/fame/text_processing/token_processor.html#TokenProcessor.segment_to_word"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fame.text_processing.token_processor.TokenProcessor.segment_to_word" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>text: <cite>str</cite>, required</dt><dd><p>The text</p>
+</dd>
+</dl>
+<p>List of tokens will be returned</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fame.text_processing">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fame.text_processing" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Shayan Fazeli
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
