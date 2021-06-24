@@ -22,6 +22,10 @@ stop_words = (list(
 
 
 class TextProcessingMethodBank:
+    """
+    The methodologies for processing a string of text are brought in this class. The name of the methods
+    can be used in the processor object to apply them in order on the strings.
+    """
     methods = [
         'remove_url',
         'convert_to_lowercase',
@@ -87,6 +91,10 @@ class TextProcessingMethodBank:
 
 
 class TokenProcessingMethodBank:
+    """
+    The methodologies for processing a list of strings of text are brought in this class. The name of the methods
+    can be used in the processor object to apply them in order on the lists of tokens.
+    """
     methods = [
         'keep_alphabetics_only',
         'keep_nouns_only',

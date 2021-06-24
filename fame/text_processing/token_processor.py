@@ -13,6 +13,16 @@ class TokenProcessor:
         self.methods = methods
 
     def segment_to_word(self, text: str) -> List[str]:
+        """
+        Parameters
+        ----------
+        text: `str`, required
+            The text
+
+        Returns
+        ----------
+        List of tokens will be returned
+        """
         if text is None:
             return None
         else:
@@ -20,12 +30,32 @@ class TokenProcessor:
         return word_list
 
     def process_tokens(self, word_list: List[str]) -> List[str]:
+        """
+        Parameters
+        ----------
+        word_list: `List[str]`, required
+            The list of words
+
+        Returns
+        ----------
+        The list of processed tokens
+        """
         for method in self.methods:
             word_list = getattr(TokenProcessingMethodBank, method)(word_list=word_list)
 
         return word_list
 
-    def __call__(self, input_data: Union[str, List[str]]):
+    def __call__(self, input_data: Union[str, List[str]]) -> List[str]:
+        """
+        Parameters
+        ----------
+        input_data: `Union[str, List[str]]`, required
+            The text to tokenize, and then process the tokens, or the tokens to be directly processed.
+
+        Returns
+        ----------
+        The list of processed tokens
+        """
         if input_data is None:
             return None
 
