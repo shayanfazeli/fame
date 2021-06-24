@@ -7,12 +7,27 @@ import torch.nn
 
 
 class MLPAutoEncoder(torch.nn.Module):
+    """
+    Parameters
+    ----------
+    input_output_dim: `int`, required
+        The dimension of the input
+
+    hidden_layers: `List[int]`, required
+        The list of hidden layers for the encoder (the inverse will be used for decoding)
+
+    apply_input_batchnorm: `bool`, optional (default=False)
+        If set to True, a general batch-norm will be learned and applied on the inputs.
+    """
     def __init__(
             self,
             input_output_dim: int,
             hidden_layers: List[int],
-            apply_input_batchnorm: bool = True
+            apply_input_batchnorm: bool = False
     ):
+        """
+        constructor
+        """
         super(MLPAutoEncoder, self).__init__()
 
         self.add_module("criterion", torch.nn.MSELoss())
@@ -37,6 +52,8 @@ class MLPAutoEncoder(torch.nn.Module):
                 torch.nn.Dropout(p=0.5)
             ]
 
+        encoder_module_list += [torch.nn.LayerNorm(hidden_layers[-1])]
+
         self.add_module("encoder", torch.nn.Sequential(*encoder_module_list))
 
         decoder_module_list = []
@@ -60,6 +77,22 @@ class MLPAutoEncoder(torch.nn.Module):
         )
 
     def forward(self, x: torch.Tensor, return_loss: bool = False, return_embeddings: bool = False) -> torch.Tensor:
+        """
+        Parameters
+        ----------
+        x: `torch.Tensor`, required
+            The `(batch_size, representation_dim`) input elements.
+
+        return_loss: `bool`, optional (default=False)
+            If set to `True`, the loss will be returned.
+
+        return_embeddings:`bool`, optional (default=False)
+            If set to True, the output will be the bottleneck representations
+
+        Returns
+        ----------
+        The output isd either the encoded embeddings, decoded reconstruction, or the loss, depending on the parameters.
+        """
         if self.apply_input_batchnorm:
             x = self.input_batchnorm(x)
 
