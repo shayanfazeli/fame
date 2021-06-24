@@ -3,10 +3,13 @@ import re
 import nltk
 import pkg_resources
 from nltk.stem.porter import PorterStemmer
+from fame.data.jargon import JARGON_WORDS_LOWER
+
 # stemming if doing word-wise
 p_stemmer = PorterStemmer()
 
 from symspellpy import SymSpell, Verbosity
+
 sym_spell = SymSpell(max_dictionary_edit_distance=3, prefix_length=7)
 dictionary_path = pkg_resources.resource_filename(
     "symspellpy", "frequency_dictionary_en_82_765.txt")
@@ -16,6 +19,7 @@ else:
     sym_spell.load_dictionary(dictionary_path, term_index=0, count_index=1)
 
 from stop_words import get_stop_words
+
 stop_words = (list(
     set(get_stop_words('en'))
 ))
@@ -102,6 +106,7 @@ class TokenProcessingMethodBank:
         'stem_words',
         'remove_stopwords'
     ]
+
     @staticmethod
     def keep_alphabetics_only(word_list: List[str]) -> List[str]:
         return [word for word in word_list if word.isalpha()]
@@ -111,14 +116,17 @@ class TokenProcessingMethodBank:
         return [word for (word, pos) in nltk.pos_tag(word_list) if pos[:2] == 'NN']
 
     @staticmethod
-    def spell_check_and_typo_fix(word_list: List[str]) -> List[str]:
+    def spell_check_and_typo_fix(word_list: List[str], jargon_to_consider='stock_crypto') -> List[str]:
         outputs = []
         for word in word_list:
-            suggestions = sym_spell.lookup(word, Verbosity.CLOSEST, max_edit_distance=3)
-            if suggestions:
-                outputs.append(suggestions[0].term)
+            if word.lower() in JARGON_WORDS_LOWER[jargon_to_consider]:
+                outputs.append(word)
             else:
-                pass
+                suggestions = sym_spell.lookup(word, Verbosity.CLOSEST, max_edit_distance=3)
+                if suggestions:
+                    outputs.append(suggestions[0].term)
+                else:
+                    pass
 
         return outputs
 
