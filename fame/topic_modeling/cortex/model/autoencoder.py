@@ -93,6 +93,7 @@ class MLPAutoEncoder(torch.nn.Module):
         ----------
         The output isd either the encoded embeddings, decoded reconstruction, or the loss, depending on the parameters.
         """
+
         if self.apply_input_batchnorm:
             x = self.input_batchnorm(x)
 

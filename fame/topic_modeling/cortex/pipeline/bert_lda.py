@@ -155,7 +155,8 @@ class TransformerLDATopicModelingPipeline:
             self,
             text_list: List[str],
             random_sample_count: int = None,
-            replace: bool = False
+            replace: bool = False,
+            verbose: bool = False
     ) -> Tuple[List[str], List[List[str]], List[int]]:
         """
         Parameters
@@ -188,7 +189,8 @@ class TransformerLDATopicModelingPipeline:
         preprocessed_tokens_list = []
         indices = []
 
-        for i, sampling_index in enumerate(tqdm(sampling_indices)):
+        the_iterator = tqdm(sampling_indices) if verbose else sampling_indices
+        for i, sampling_index in enumerate(the_iterator):
             text = text_list[sampling_index]
             try:
                 preprocessed_text_list.append(
@@ -291,6 +293,10 @@ class TransformerLDATopicModelingPipeline:
         if self.use_lda:
             assert self.lda_model is not None, "train the LDA first"
             lda_reps = self.get_lda_representations(tokens_list=tokens_list)
+            if lda_reps.shape[0] == 0:
+                raise Exception("no token list")
+            if lda_reps.ndim == 1:
+                lda_reps = lda_reps.reshape(1, -1)
             reps.append(lda_reps)
 
         if self.use_tfidf:
@@ -299,17 +305,24 @@ class TransformerLDATopicModelingPipeline:
 
         if self.use_transformer:
             if len(text_list) <= batch_size:
-                reps.append(self.transformer.encode(text_list))
+                transformer_reps = self.transformer.encode(text_list)
+                if transformer_reps.ndim == 1:
+                    transformer_reps = transformer_reps.reshape(1, -1)
             else:
                 transformer_reps = []
                 for i in range(len(text_list) // batch_size + 1):
                     start_index = batch_size * i
+                    if start_index == len(text_list):
+                        break
                     end_index = batch_size * (i + 1)
                     if end_index > len(text_list):
                         end_index = len(text_list)
-                    transformer_reps.append(self.transformer.encode(text_list[start_index:end_index]))
+                    tmp = self.transformer.encode(text_list[start_index:end_index])
+                    if tmp.ndim == 1:
+                        tmp = tmp.reshape(1, -1)
+                    transformer_reps.append(tmp)
                 transformer_reps = numpy.concatenate(transformer_reps, axis=0)
-                reps.append(transformer_reps)
+            reps.append(transformer_reps)
 
         if len(reps) > 1:
             reps = numpy.concatenate(reps, axis=1)
@@ -346,6 +359,8 @@ class TransformerLDATopicModelingPipeline:
         if self.autoencoder_is_trained:
             return
 
+        self.autoencoder.train()
+
         optimizer = torch.optim.SGD(self.autoencoder.parameters(), lr=1e-2, weight_decay=1e-6)
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=number_of_epochs)
         reps = self.get_stacked_representations(text_list=text_list, tokens_list=tokens_list)
@@ -360,6 +375,8 @@ class TransformerLDATopicModelingPipeline:
             for i in range(len(reps) // batch_size + 1):
                 optimizer.zero_grad()
                 start_index = batch_size * i
+                if start_index == len(reps):
+                    break
                 end_index = batch_size * (i + 1)
                 if end_index > reps.shape[0]:
                     end_index = reps.shape[0]
@@ -373,6 +390,9 @@ class TransformerLDATopicModelingPipeline:
             epoch_losses.append(numpy.mean(batch_losses))
             epoch_index_range.set_description(f"Epoch: {epoch_index} / Loss: {epoch_losses[-1]:.4f}")
             epoch_index_range.refresh()
+
+        self.autoencoder_is_trained = True
+        self.autoencoder.eval()
 
         return epoch_losses
 
@@ -403,10 +423,14 @@ class TransformerLDATopicModelingPipeline:
             embeddings = []
             for i in range(reps.shape[0] // batch_size + 1):
                 start_index = batch_size * i
+                if start_index == reps.shape[0]:
+                    break
                 end_index = batch_size * (i + 1)
                 if end_index > reps.shape[0]:
                     end_index = reps.shape[0]
                 x = torch.from_numpy(reps[numpy.arange(start_index, end_index), :]).to(self.device).float()
+                if x.ndim == 1:
+                    x = x.unsqueeze(0)
                 embeddings.append(self.autoencoder(x, return_embeddings=True))
             embeddings = torch.cat(embeddings, dim=0).data.cpu().numpy()
 
@@ -431,6 +455,8 @@ class TransformerLDATopicModelingPipeline:
         """
         for i in range(reps.shape[0] // batch_size + 1):
             start_index = batch_size * i
+            if start_index == reps.shape[0]:
+                break
             end_index = batch_size * (i + 1)
             if end_index > reps.shape[0]:
                 end_index = reps.shape[0]
