@@ -1,4 +1,4 @@
-from typing import List, Tuple, Union
+from typing import List, Tuple, Union, Dict
 import random
 from tqdm import tqdm
 
@@ -333,7 +333,7 @@ class TransformerLDATopicModelingPipeline:
 
         return reps
 
-    def prepare_autoencoder(self, text_list, tokens_list, number_of_epochs: int = 200, batch_size: int = 128, shuffle: bool =True) -> List[float]:
+    def prepare_autoencoder(self, text_list: List[str], tokens_list: List[List[str]], test_bundle: Tuple[List[str], List[List[str]]] = None, number_of_epochs: int = 200, batch_size: int = 128, shuffle: bool =True) -> Dict[str, List[float]]:
         """
         Parameters
         ----------
@@ -359,37 +359,53 @@ class TransformerLDATopicModelingPipeline:
         if self.autoencoder_is_trained:
             return
 
-        self.autoencoder.train()
-
         optimizer = torch.optim.SGD(self.autoencoder.parameters(), lr=1e-2, weight_decay=1e-6)
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=number_of_epochs)
-        reps = self.get_stacked_representations(text_list=text_list, tokens_list=tokens_list)
+        reps = {'train': self.get_stacked_representations(text_list=text_list, tokens_list=tokens_list)}
 
         if shuffle:
             numpy.random.shuffle(reps)
 
-        epoch_losses = []
+        if test_bundle is not None:
+            modes_to_try = ['train', 'test']
+            epoch_losses = {'train': [], 'test': []}
+            reps['test'] = self.get_stacked_representations(text_list=test_bundle[0], tokens_list=test_bundle[1])
+        else:
+            modes_to_try = ['train']
+            epoch_losses = {'train': []}
+
         epoch_index_range = tqdm(range(number_of_epochs))
         for epoch_index in epoch_index_range:
-            batch_losses = []
-            for i in range(len(reps) // batch_size + 1):
-                optimizer.zero_grad()
-                start_index = batch_size * i
-                if start_index == len(reps):
-                    break
-                end_index = batch_size * (i + 1)
-                if end_index > reps.shape[0]:
-                    end_index = reps.shape[0]
-                x = torch.from_numpy(reps[numpy.arange(start_index, end_index), :]).to(self.device).float()
-                loss = self.autoencoder(x, return_loss=True)
-                batch_losses.append(loss.item())
-                loss.backward()
-                optimizer.step()
-            scheduler.step()
+            for mode in modes_to_try:
+                if mode == 'train':
+                    self.autoencoder.train()
+                elif mode == 'test':
+                    self.autoencoder.eval()
+                else:
+                    raise ValueError
 
-            epoch_losses.append(numpy.mean(batch_losses))
-            epoch_index_range.set_description(f"Epoch: {epoch_index} / Loss: {epoch_losses[-1]:.4f}")
-            epoch_index_range.refresh()
+                batch_losses = []
+                for i in range(len(reps[mode]) // batch_size + 1):
+                    if mode == 'train':
+                        optimizer.zero_grad()
+                    start_index = batch_size * i
+                    if start_index == len(reps[mode]):
+                        break
+                    end_index = batch_size * (i + 1)
+                    if end_index > reps[mode].shape[0]:
+                        end_index = reps[mode].shape[0]
+                    x = torch.from_numpy(reps[mode][numpy.arange(start_index, end_index), :]).to(self.device).float()
+                    loss = self.autoencoder(x, return_loss=True)
+                    batch_losses.append(loss.item())
+                    if mode == 'train':
+                        loss.backward()
+                        optimizer.step()
+
+
+                epoch_losses[mode].append(numpy.mean(batch_losses))
+                epoch_index_range.set_description(f"Epoch: {epoch_index} [{mode}] / Loss: {epoch_losses[-1]:.4f}")
+                epoch_index_range.refresh()
+            scheduler.step()
 
         self.autoencoder_is_trained = True
         self.autoencoder.eval()
