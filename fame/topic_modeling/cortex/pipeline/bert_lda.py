@@ -401,9 +401,8 @@ class TransformerLDATopicModelingPipeline:
                         loss.backward()
                         optimizer.step()
 
-
                 epoch_losses[mode].append(numpy.mean(batch_losses))
-                epoch_index_range.set_description(f"Epoch: {epoch_index} [{mode}] / Loss: {epoch_losses[-1]:.4f}")
+                epoch_index_range.set_description(f"Epoch: {epoch_index} [{mode}] / Loss: {epoch_losses[mode][-1]:.4f}")
                 epoch_index_range.refresh()
             scheduler.step()
 
