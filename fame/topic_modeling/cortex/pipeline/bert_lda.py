@@ -411,7 +411,7 @@ class TransformerLDATopicModelingPipeline:
 
         return epoch_losses
 
-    def get_representations(self, text_list: List[str], batch_size=128) -> numpy.ndarray:
+    def get_representations(self, text_list: List[str], batch_size=128, return_processed: bool = False) -> numpy.ndarray:
         """
         Parameters
         ----------
@@ -431,7 +431,10 @@ class TransformerLDATopicModelingPipeline:
         reps = self.get_stacked_representations(text_list=preprocessed_text_list, tokens_list=preprocessed_tokens_list)
 
         if self.autoencoder is None:
-            return reps
+            if return_processed:
+                return reps, (preprocessed_text_list, preprocessed_tokens_list, indices)
+            else:
+                return reps
         else:
             assert self.autoencoder_is_trained
 
@@ -449,7 +452,10 @@ class TransformerLDATopicModelingPipeline:
                 embeddings.append(self.autoencoder(x, return_embeddings=True))
             embeddings = torch.cat(embeddings, dim=0).data.cpu().numpy()
 
-            return embeddings
+            if return_processed:
+                return embeddings, (preprocessed_text_list, preprocessed_tokens_list, indices)
+            else:
+                return embeddings
 
     def train_clustering_fullbatch(self, reps: numpy.ndarray) -> None:
         """
