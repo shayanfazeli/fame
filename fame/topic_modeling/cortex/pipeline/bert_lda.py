@@ -330,6 +330,8 @@ class TransformerLDATopicModelingPipeline:
 
         if len(reps) > 1:
             reps = numpy.concatenate(reps, axis=1)
+        else:
+            reps = reps[0]
 
         if self.apply_pca_on_stacked_reps:
             assert self.pca is not None and self.pca_is_trained, "a trained PCA model is needed for dimensionality reduction"
