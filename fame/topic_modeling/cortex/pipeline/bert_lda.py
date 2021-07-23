@@ -130,7 +130,11 @@ class TransformerLDATopicModelingPipeline:
         self.use_tfidf = use_tfidf
         self.use_transformer = use_transformer
         self.transformer = SentenceTransformer(transformer_modelname).to(device) if use_transformer else None
-        self.autoencoder = autoencoder.to(device)
+        if autoencoder is not None:
+            self.autoencoder = autoencoder.to(device)
+        else:
+            self.autoencoder = None
+
         self.autoencoder_is_trained = False
 
         self.tfidf = TfidfVectorizer() if use_tfidf else None
