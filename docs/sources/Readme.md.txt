@@ -10,7 +10,7 @@ You can install this package by running the following script:
 pip3 install -e .
 ```
 
-Or 
+Or
 ```
 python3 setup.py install
 ```
